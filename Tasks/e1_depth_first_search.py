@@ -25,4 +25,4 @@ def dfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
         else:
             buf_list.pop(-1)
 
-    return list(final_list)
+    return final_list

@@ -14,7 +14,6 @@ def dijkstra_algo(g: nx.DiGraph, starting_node: Hashable) -> Mapping[Hashable, U
         final_dict[i] = float("inf")
     visited_nodes = [starting_node]
     final_dict[starting_node] = 0
-    c = 0
     while len(visited_nodes) > 0:
         for i in g.neighbors(visited_nodes[0]):
             if i not in visited_nodes:

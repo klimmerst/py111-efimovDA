@@ -14,7 +14,7 @@ def bfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
     final_list = [start_node]
 
     while len(buf_list) > 0:
-        for i in list(g.neighbors(buf_list[0])):
+        for i in g.neighbors(buf_list[0]):
             if i not in final_list:
                 final_list.append(i)
                 buf_list.append(i)

@@ -14,8 +14,6 @@ def dfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
     final_list = [start_node]
     buf_list = [start_node]
 
-    c = 0
-
     while len(buf_list) > 0:
         for i in g.neighbors(buf_list[-1]):
             if i not in final_list:

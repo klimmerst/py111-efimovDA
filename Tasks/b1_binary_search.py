@@ -28,8 +28,3 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
             left = mid + 1
         else:
             right = mid - 1
-
-
-
-
-print(binary_search(5, [1, 2, 5, 5, 5, 2, 2]))

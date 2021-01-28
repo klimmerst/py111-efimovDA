@@ -5,11 +5,16 @@ from typing import Sequence
 
 
 def min_search(arr: Sequence) -> int:
-    """
-    Function that find minimal element in array
 
-    :param arr: Array containing numbers
-    :return: index of first occurrence of minimal element in array
-    """
-    print(arr)
-    return -1
+    if not arr:
+        return -1
+
+    minim = arr[0]
+    index = 0
+
+    for i in range(len(arr)):
+        if arr[i] < minim:
+            minim = arr[i]
+            index = i
+
+    return index

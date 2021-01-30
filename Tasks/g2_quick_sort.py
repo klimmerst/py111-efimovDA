@@ -1,7 +1,8 @@
 from typing import List
+import random
 
 
-def sort(container: List[int]) -> List[int]:
+def sort(container: List[int], left=None, right=None) -> List[int]:
     """
     Sort input container with quick sort
 
@@ -9,24 +10,35 @@ def sort(container: List[int]) -> List[int]:
     :return: container sorted in ascending order
     """
 
-    if not container:
-        return container
-    
-    if len(container) == 1:
-        return container
+    if left is None:
+        left = 0
+        right = len(container) - 1
 
-    middle = len(container) // 2
+    if left < right:
+        r = random.randint(left, right - 1)
 
-    left_cont = []
-    right_cont = []
-    same_cont = []
+        mid_n = (left + right) // 2
 
-    for i in container:
-        if i > container[middle]:
-            right_cont.append(i)
-        elif i < container[middle]:
-            left_cont.append(i)
-        elif i == container[middle]:
-            same_cont.append(i)
+        mid = container[mid_n]
 
-    return sort(left_cont) + same_cont + sort(right_cont)
+        container[r], container[mid_n] = container[mid_n], container[r]
+
+        i = left - 1
+        j = right + 1
+
+        while True:
+            i += 1
+            while container[i] < mid:
+                i += 1
+            j -= 1
+            while container[j] > mid:
+                j -= 1
+            if i >= j:
+                break
+
+            container[i], container[j] = container[j], container[i]
+
+        sort(container, left, j)
+        sort(container, j + 1, right)
+
+    return container
